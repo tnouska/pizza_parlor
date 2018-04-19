@@ -58,6 +58,7 @@ function* addOrderSaga( action ){
     }
 }
 
+
 //pizzaList reducer
 const pizzaList = (state = [], action) => {
     switch(action.type) {
@@ -74,6 +75,16 @@ const orderList = (state = [], action) => {
         case 'SET_ORDER':
             return action.payload
         default:
+            return state
+    }
+}
+
+//updateQuantity reducer
+const updateQuantity = (state = 0, action) => {
+    switch(action.type) {
+        case 'UPDATE_QUANTITY':
+            return action.payload
+        default: 
             return state
     }
 }
