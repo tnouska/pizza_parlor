@@ -13,11 +13,14 @@ import axios from 'axios';
 //create Saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
+//root Saga for takeEvery
 function* rootSaga(){
     yield takeEvery('FETCH_PIZZA', getPizzaSaga),
-    yield takeEvery('FETCH_ORDER', getOrderSaga)
+    yield takeEvery('FETCH_ORDER', getOrderSaga),
+    yield takeEvery('ADD_ORDER', addOrderSaga)
 }
 
+//get pizza generator function
 function* getPizzaSaga( action ){
     try{
         const pizzaResponse = yield call(axios.get, '/pizza');
@@ -30,6 +33,7 @@ function* getPizzaSaga( action ){
     }
 }
 
+//get order generator function
 function* getOrderSaga( action ){
     try{
         const orderResponse = yield call(axios.get, '/order');
@@ -42,6 +46,19 @@ function* getOrderSaga( action ){
     }
 }
 
+//post to order generator function
+function* addOrderSaga( action ){
+    try{
+        yield call(axios.post, '/order', action.payload)
+        yield put({
+            type: 'FETCH_ORDER'
+        })
+    } catch ( error ){
+
+    }
+}
+
+//pizzaList reducer
 const pizzaList = (state = [], action) => {
     switch(action.type) {
         case 'SET_PIZZA': 
@@ -51,6 +68,7 @@ const pizzaList = (state = [], action) => {
     }
 }
 
+//orderList reducer
 const orderList = (state = [], action) => {
     switch(action.type) {
         case 'SET_ORDER':
@@ -66,6 +84,7 @@ const store = createStore (
     applyMiddleware(sagaMiddleware, logger)
 )
 
+//RUN MIDDLEWARE
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={store}><App /></ Provider>, document.getElementById('root'));
