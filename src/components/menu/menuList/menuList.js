@@ -7,19 +7,26 @@ const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-// const pizzaList = [
-//     { id: 1, name: 'Splat of Marinara', 
-//         description: "Cheeseless pizza with marinara, garlic and red peppers.", cost: 12.99},
-//     { id: 2, name: 'Onamonapizza', 
-//         description: "Cheese, BBQ sauce and artichokes.", cost: 14.99},
-//     { id: 3, name: 'Chinese Firedragon', 
-//         description: "Pepperoni, pineapple and banana peppers.", cost:15.99 }
-// ];
-
 class MenuList extends Component {
     componentDidMount() {
         this.props.dispatch({
             type: 'FETCH_PIZZA'
+        })
+    }
+
+    addOnePizza = () =>{
+        const addPizza = this.props.reduxState.updateQuantity +1;
+        this.props.dispatch({
+            type: "UPDATE_QUANTITY",
+            payload: addPizza
+        })
+    }
+
+    deleteOnePizza = () => {
+        const deletePizza = this.props.reduxState.updateQuantity - 1;
+        this.props.dispatch({
+            type: "UPDATE_QUANTITY",
+            payload: deletePizza
         })
     }
 
@@ -31,8 +38,9 @@ class MenuList extends Component {
                 <h3>{pizza.name}</h3>
                 <p>{pizza.description}</p>
                 <h4>${pizza.cost}</h4>
-                <IconButton size="small" color="secondary"><AddCircle /></IconButton>
-                <IconButton size="small" color="secondary"><RemoveCircle /></IconButton>
+               <IconButton size="small" color="secondary" onClick={this.addOnePizza}><AddCircle /></IconButton>
+                {this.props.reduxState.updateQuantity}
+                <IconButton size="small" color="secondary" onClick={this.deleteOnePizza}><RemoveCircle /></IconButton>
             </div>
         })
         return (
