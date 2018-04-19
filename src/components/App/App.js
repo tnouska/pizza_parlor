@@ -24,7 +24,7 @@ class App extends Component {
             </li>
             <li>
               <Link to='/checkout'>CHECKOUT</Link>
-            </li> */}
+            </li> 
            </ul>
           <br/>
           <p>Pizza is great.</p>
