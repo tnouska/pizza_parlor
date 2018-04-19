@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Menu from '../menu/menu.js';
+import { connect } from 'react-redux';
+
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
+
 
 class App extends Component {
   render() {
@@ -17,15 +24,16 @@ class App extends Component {
             </li>
             <li>
               <Link to='/checkout'>CHECKOUT</Link>
-            </li>
-          </ul>
+            </li> */}
+           </ul>
           <br/>
           <p>Pizza is great.</p>
+          <Route exact path="/" component={Menu} />
+          {/* <Route path="/checkout" component={Checkout} /> */}
         </div>
-        {/* Routes will go here */}
       </Router>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
