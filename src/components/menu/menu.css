@@ -1,0 +1,7 @@
+.pizzaDiv{
+    float: left;
+    background-color: rgb(155, 233, 207);
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
