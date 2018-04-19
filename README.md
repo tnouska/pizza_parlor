@@ -54,3 +54,103 @@ This page **should not** appear in the navigation bar. Eventually the client wou
 - Display a list of pizzas for each order on the orders page. 
 - Add a button on the orders page to track delivery status.
 - Give each pizza an image url and add pictures to the `public/images` folder.
+
+# Name of Project
+
+Pizza Parlor Group Project
+
+## Built With
+
+axios, material-ui, pg, react, redux
+
+## Getting Started
+
+```sql
+CREATE DATABASE "pizza_parlor";
+
+CREATE TABLE "pizza" (
+  "id" serial primary key,
+  "name" varchar(120),
+  "description" varchar(480),
+  "cost" numeric
+);
+
+CREATE TABLE "order" (
+  "id" serial primary key,
+  "customer_name" varchar(120),
+  "order_total" numeric
+);
+```
+
+```
+npm install
+npm run server
+```
+
+Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
+
+```
+npm run client
+```
+
+### Prerequisites
+
+Link to software that is required to install the app (e.g. node).
+
+- [Node.js](https://nodejs.org/en/)
+- [postgresql](https://www.postgresql.org/download/)
+
+
+
+### Installing
+
+Steps to get the development environment running.
+
+
+
+
+## Screen Shot
+
+<!-- will be added later ![menu page](wireframes/screen-one.png) -->
+
+## Documentation
+
+- [Node.js](https://nodejs.org/en/)
+- [React.js](https://reactjs.org/)
+- [postgresql](https://www.postgresql.org/docs/)
+- [material-ui-next](https://material-ui-next.com/)
+
+
+### Completed Features
+
+High level list of items completed.
+
+- [x] Get route to database
+- [x] Post route to database
+- [x] sagas implemented
+- [x] logger implemented
+- [x] reudx implemented
+- [x] database data appearing on DOM
+- [ ] Post to database from client
+
+### Next Steps
+
+Features that you would like to add at some point in the future.
+
+- [ ] Be able to create users and place orders by user.
+- [ ] Save past orders per user.
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Authors
+
+* Sarah Bloom
+* Ian Carthey
+* Teagan Nouska
+
+
+## Acknowledgments
+
+* Thanks to PrimeAcademy for the base project
