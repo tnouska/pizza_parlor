@@ -15,8 +15,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 //root Saga for takeEvery
 function* rootSaga(){
-    yield takeEvery('FETCH_PIZZA', getPizzaSaga),
-    yield takeEvery('FETCH_ORDER', getOrderSaga),
+    yield takeEvery('FETCH_PIZZA', getPizzaSaga)
+    yield takeEvery('FETCH_ORDER', getOrderSaga)
     yield takeEvery('ADD_ORDER', addOrderSaga)
 }
 
@@ -91,7 +91,7 @@ const updateQuantity = (state = 0, action) => {
 
 //create store
 const store = createStore (
-    combineReducers({ pizzaList, orderList }),
+    combineReducers({ pizzaList, orderList, updateQuantity }),
     applyMiddleware(sagaMiddleware, logger)
 )
 
