@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import './menu.css';
-import MenuList from './menuList/menuList.js'
+import MenuList from './menuList/menuList.js';
+
 
 const mapStateToProps = reduxState => ({
     reduxState,

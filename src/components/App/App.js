@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Menu from '../menu/menu.js';
 import { connect } from 'react-redux';
+import Checkout from '../checkout/checkout.js'
 
 const mapStateToProps = reduxState => ({
   reduxState,
@@ -29,7 +30,7 @@ class App extends Component {
           <br/>
           <p>Pizza is great.</p>
           <Route exact path="/" component={Menu} />
-          {/* <Route path="/checkout" component={Checkout} /> */}
+          <Route path="/checkout" component={Checkout} />
         </div>
       </Router>
     );
