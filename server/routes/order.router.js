@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req,res)=>{
     let newOrder = req.body;
-    const queryText = `INSERT INTO order (customer_name,order_total)`
+    const queryText = `INSERT INTO "order" (customer_name,order_total)`
     pool.query(queryText, [req.body.customer_name, req.body.order_total])
     .then((response)=>{
         res.sendStatus(201);
