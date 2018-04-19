@@ -16,7 +16,8 @@ import App from './components/App/App';
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga(){
-    yield takeEvery('FETCH_PIZZA', getPizzaSaga)
+    yield takeEvery('FETCH_PIZZA', getPizzaSaga),
+    yield takeEvery('FETCH_ORDER', getOrderSaga)
 }
 
 function* getPizzaSaga( action ){
@@ -31,6 +32,18 @@ function* getPizzaSaga( action ){
     }
 }
 
+function* getOrderSaga( action ){
+    try{
+        const orderResponse = yield call(axios.get, '/order');
+        yield put({
+            type: 'SET_ORDER',
+            payload: orderResponse.data
+        })
+    } catch ( error ){
+
+    }
+}
+
 const pizzaList = (state = [], action) => {
     switch(action.type) {
         case 'SET_PIZZA': 
@@ -40,9 +53,18 @@ const pizzaList = (state = [], action) => {
     }
 }
 
+const orderList = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_ORDER':
+            return action.payload
+        default:
+            return state
+    }
+}
+
 //create store
 const store = createStore (
-    combineReducers({ pizzaList }),
+    combineReducers({ pizzaList, orderList }),
     applyMiddleware(sagaMiddleware, logger)
 )
 
