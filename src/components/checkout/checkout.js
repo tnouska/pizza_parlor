@@ -15,21 +15,33 @@ class Checkout extends Component {
                 total: ''
             }
         }
-    }//end constructor
 
+    }//end constructor
+    result = () => {
+        let totalCost = 0;
+        // this.props.reduxState.pizzaOrder[i].cost
+        for (let i = 0; i < this.props.reduxState.pizzaOrder.length; i++) {
+            const element = this.props.reduxState.pizzaOrder[i].cost;
+            totalCost += element;
+        } return totalCost;
+    }
+    componentDidMount() {
+        this.result();
+    }
 
     render() {
 
-        let currentCheckoutInfo = this.props.reduxState.ARRAYNAMETBD.map((pizzaItem)=>{
-            let costofPizza = pizzaItem.quantity * pizzaItem.cost;
+        let currentCheckoutInfo = this.props.reduxState.pizzaOrder.map((pizzaItem)=>{
             return( 
-                <tr>
-                        <td>pizzaItem.name</td>
-                        <td>pizzaItem.quantity</td>
-                        <td>costofPizza</td>
-                    </tr>
+                <tr key={pizzaItem.name}>
+                    <td>{pizzaItem.name}</td>
+                    <td>{pizzaItem.quantity}</td>
+                    <td>{pizzaItem.cost}</td>
+                </tr>
             )
         })
+
+
 
         return (
         <div>
@@ -47,7 +59,7 @@ class Checkout extends Component {
                     {currentCheckoutInfo}
                 </tbody>
             </table>
-            {/* < OrderTotal /> */}
+            <p>Total Cost: {this.result()}</p>
             <button> Submit Order </button>
             </form>
         </div>
