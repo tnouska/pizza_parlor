@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import OrderTotal from '../OrderTotal/OrderTotal.js'
+// import OrderTotal from '../OrderTotal/OrderTotal.js'
 
 const mapStateToProps = reduxState => ({
     reduxState,
