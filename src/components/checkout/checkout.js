@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import OrderTotal from '../OrderTotal/OrderTotal.js'
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -16,11 +17,20 @@ class Checkout extends Component {
         }
     }//end constructor
 
-    componentDidMount(){
-        
-    }
 
     render() {
+
+        let currentCheckoutInfo = this.props.reduxState.ARRAYNAMETBD.map((pizzaItem)=>{
+            let costofPizza = pizzaItem.quantity * pizzaItem.cost;
+            return( 
+                <tr>
+                        <td>pizzaItem.name</td>
+                        <td>pizzaItem.quantity</td>
+                        <td>costofPizza</td>
+                    </tr>
+            )
+        })
+
         return (
         <div>
             <form onSubmit={this.addNewOrder}>
@@ -34,14 +44,10 @@ class Checkout extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {currentCheckoutInfo}
                 </tbody>
             </table>
-            {/* submit order is post to DB - submit action */}
+            {/* < OrderTotal /> */}
             <button> Submit Order </button>
             </form>
         </div>
