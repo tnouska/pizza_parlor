@@ -12,6 +12,7 @@ class MenuListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             name: '',
             quantity: 0
         }
@@ -20,6 +21,7 @@ class MenuListItem extends Component {
     addOnePizza = () => {
         // const addPizza = this.setState.quantity + 1;
         this.setState({
+            id: this.props.pizza.id ,
             name: this.props.pizza.name,
             quantity: this.state.quantity + 1
         })
@@ -32,6 +34,7 @@ class MenuListItem extends Component {
     deleteOnePizza = () => {
         // const deletePizza = this.setState.quantity - 1;
         this.setState({
+            id: this.props.pizza.id,
             name: this.props.pizza.name,
             quantity: this.state.quantity - 1
         })
