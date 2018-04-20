@@ -16,12 +16,15 @@ class Checkout extends Component {
         }
     }//end constructor
 
+    componentDidMount(){
+        
+    }
+
     render() {
         return (
         <div>
             <form onSubmit={this.addNewOrder}>
                 <input type='text' placeholder='Name' value={this.state.newOrder.name} onChange={this.handleNameChange} />
-            {/* Add table here */}
             <table>
                 <thead>
                     <tr>
