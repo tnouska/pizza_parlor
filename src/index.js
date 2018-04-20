@@ -97,7 +97,7 @@ const pizzaOrder = (state = menuArray, action) => {
             }); 
             return newMenuArray
         case 'DELETE_PIZZA':
-            let newMenuArray = menuArray.map( (pizza) =>{
+             newMenuArray = menuArray.map( (pizza) =>{
                 if( pizza.name === action.payload.name) {
                     pizza.quantity--;
                     pizza.cost -= parseFloat(action.payload.cost);
