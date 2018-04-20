@@ -20,9 +20,7 @@ class MenuList extends Component {
             return <MenuListItem key={pizza.id} pizza={pizza} />
         })
         return (
-            
-            <div> {JSON.stringify(this.props.reduxState.pizzaOrder)}
-            {allPizzaItems} </div>
+            <div> {allPizzaItems} </div>
         )
     }//end render
 
