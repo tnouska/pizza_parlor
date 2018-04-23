@@ -47,7 +47,6 @@ class MenuListItem extends Component {
                 <IconButton size="small" color="secondary" onClick={this.addOnePizza}><AddCircle /></IconButton>
                 <span>{this.state.quantity}</span>
                 <IconButton size="small" color="secondary" onClick={this.deleteOnePizza}><RemoveCircle /></IconButton>
-            
             </div>
         )
 

@@ -32,6 +32,9 @@ class Checkout extends Component {
     render() {
 
         let currentCheckoutInfo = this.props.reduxState.pizzaOrder.map((pizzaItem)=>{
+            // if (pizzaItem.quantity < 1){
+            //     return <tr key={pizzaItem.name}></tr>
+            // } else
             return( 
                 <tr key={pizzaItem.name}>
                     <td>{pizzaItem.name}</td>
@@ -41,26 +44,24 @@ class Checkout extends Component {
             )
         })
 
-
-
         return (
         <div>
             <form onSubmit={this.addNewOrder}>
                 <input type='text' placeholder='Name' value={this.state.newOrder.name} onChange={this.handleNameChange} />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pizza Name</th>
-                        <th>Quantity</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentCheckoutInfo}
-                </tbody>
-            </table>
-            <p>Total Cost: {this.result()}</p>
-            <button> Submit Order </button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pizza Name</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentCheckoutInfo}
+                    </tbody>
+                </table>
+                <p>Total Cost: $ {this.result()}</p>
+                <button> Submit Order </button>
             </form>
         </div>
         )

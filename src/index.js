@@ -6,8 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-import createSagaMiddleware from 'redux-saga';
-import { call, put, takeEvery } from 'redux-saga/effects';
+// import createSagaMiddleware from 'redux-saga';
+// import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 let menuArray = [{name: 'Onamonapizza', quantity: 0, cost: 0 }, {name: 'Splat of Marinara', quantity: 0, cost: 0 },
@@ -33,7 +33,7 @@ function* getPizzaSaga( action ){
             payload: pizzaResponse.data
         })
     } catch ( error ) {
-
+        //good to log error AND dispatch action if error (to let user know there is an issure)
     }
 }
 
@@ -58,7 +58,6 @@ function* addOrderSaga( action ){
             type: 'FETCH_ORDER'
         })
     } catch ( error ){
-
     }
 }
 
