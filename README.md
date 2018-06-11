@@ -27,7 +27,7 @@ Your client has asked your team to build a pizza ordering system. They have prov
 
 Display all of the pizzas on the screen. Allow users to increase or decrease the quantity of each pizza they would like to order. Show the total cost of items in the cart in the top right of this page.
 
-![menu page](wireframes/screen-one.png)
+![menu page](wireframes/pizza-menu.png)
 
 ### CHECKOUT
 
@@ -35,7 +35,7 @@ Include an input field for the users name and display a table of pizzas they hav
 
 > NOTE: **As a stretch goal**, add a junction table and save each pizza that has been added to the order. 
 
-![checkout page](wireframes/screen-two.png)
+![checkout page](wireframes/pizza-order.png)
 
 ### ORDERS
 
