@@ -15,11 +15,10 @@ class Checkout extends Component {
                 total: ''
             }
         }
-
     }//end constructor
+
     result = () => {
         let totalCost = 0;
-        // this.props.reduxState.pizzaOrder[i].cost
         for (let i = 0; i < this.props.reduxState.pizzaOrder.length; i++) {
             const element = this.props.reduxState.pizzaOrder[i].cost;
             totalCost += element;
@@ -33,7 +32,7 @@ class Checkout extends Component {
 
         let currentCheckoutInfo = this.props.reduxState.pizzaOrder.map((pizzaItem)=>{
             return( 
-                <tr key={pizzaItem.name}>
+                <tr class="pizzaOrder" key={pizzaItem.name}>
                     <td>{pizzaItem.name}</td>
                     <td>{pizzaItem.quantity}</td>
                     <td>{pizzaItem.cost}</td>
@@ -41,30 +40,29 @@ class Checkout extends Component {
             )
         })
 
-
-
         return (
-        <div>
-            <form onSubmit={this.addNewOrder}>
-                <input type='text' placeholder='Name' value={this.state.newOrder.name} onChange={this.handleNameChange} />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pizza Name</th>
-                        <th>Quantity</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentCheckoutInfo}
-                </tbody>
-            </table>
-            <p>Total Cost: {this.result()}</p>
-            <button> Submit Order </button>
-            </form>
-        </div>
+            <div>
+                <form onSubmit={this.addNewOrder}>
+                    <input type='text' placeholder='Name' value={this.state.newOrder.name} onChange={this.handleNameChange} />
+                <br/>
+                <br/>
+                <table class="pizzaOrder">
+                    <thead>
+                        <tr>
+                            <th>Pizza Name</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentCheckoutInfo}
+                    </tbody>
+                </table>
+                <p>Total Cost: {this.result()}</p>
+                <button> Submit Order </button>
+                </form>
+            </div>
         )
-
     }//end render
 }//end class
 
