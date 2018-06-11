@@ -20,7 +20,7 @@ class MenuList extends Component {
             return <MenuListItem key={pizza.id} pizza={pizza} />
         })
         return (
-            <div> {allPizzaItems} </div>
+            <div id="pizzaList"> {allPizzaItems} </div>
         )
     }//end render
 

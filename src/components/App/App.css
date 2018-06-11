@@ -1,9 +1,13 @@
+ul{
+  list-style-type: none;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgba(156, 28, 28, 0.924);
   height: 70px;
   padding: 20px;
   color: white;
